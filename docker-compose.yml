@@ -1,0 +1,45 @@
+# docker-compose.yml
+
+# docker-composeのversion 基本3
+version: '3'
+
+# Host側にdb保存場所(db-data)を作成する
+# ・他のコンテナとdbを共有する場合
+# ・コンテナを消したらdbも消える。その為コンテナの外にdb保存ファイルを作成する
+volumes:
+  mysql-data:
+    driver: local
+
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      # 相対パスを指定
+      - ".:/<#file_name>"
+    # コンテナ内で使用する環境変数を指定
+    environment:
+      # database.ymlで使用
+      - "DATABASE_PASSWORD=postgres"
+    # tty = -itのtのこと
+    tty: true
+    # stdin_open = -itのiのこと
+    stdin_open: true
+    # depends_onを記述したサービスより、depends_onで指定したサービスを先に作成する
+    # 今回だとdbを作成した後にwebを作成する
+    depends_on:
+      - db
+    # webからdbにアクセスするため
+    links:
+      - db
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - '3306:3306'
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - mysql-data:/var/lib/mysql
