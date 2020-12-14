@@ -10,6 +10,26 @@
   </head>
 
   <body>
-    <%= yield %>
+      <% if user_signed_in? %>
+        <div class="sidebar public-sidebar">
+                 <!--  <#a href="/events"><#img class="sidebar__room-logo" src="/assets/Nomi-Joy-a0460bb4c9735ab3f225a863e6bf2cb4ad1c6a09beeb0416aa11712a24b6a8f7.png"><#/a> -->
+            <nav class="sidebar__nav">
+                <ul class="nav flex-column">
+                  <li><%= link_to 'HOME', users_home_path %></li>
+                  <li><%= link_to 'MYPAGE', user_path(current_user.id) %></li>
+                  <li><%= link_to 'SHOPS', shops_path %></li>
+                  <li><%= link_to 'NOTICE', ""%></li>
+                  <li><%= link_to 'DM', "" %></li>
+                  <li><%= link_to 'SIGNOUT', destroy_user_session_path,method: :delete %></li>
+                </ul>
+            </nav>
+          <!--   <#div class="sidebar__go-to-otherside">
+              <#p class="go-to-otherside__letter">Go to<#/p>
+              <#a class="" href="/admin/events"><#img class="go-to-otherside__logo" src="/assets/Kanjino-Heya-75d74a508ef00c1acd9b1b60ef8e0cf8c7eebf0b96abf9e3be2270b9463735a7.png"></a>
+            <#/div> -->
+
+        </div>
+      <% end %>
+   <%= yield %>
   </body>
 </html>

@@ -10,4 +10,8 @@ before_action :configure_permitted_parameters, if: :devise_controller?
   end
 #8~10行目でnameのデータ操作を許可するアクションメソッドが指定
 #sign upに名前の項目を追加下から記入した。
+#-------------------------------------------------------------------devise遷移先
+  def after_sign_in_path_for(resource)
+    users_home_path
+  end
 end
