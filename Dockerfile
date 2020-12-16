@@ -9,3 +9,4 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /<#file_name>
 COPY Gemfile Gemfile.lock /<#file_name>/
 RUN bundle install
+#Docker file
