@@ -6,6 +6,7 @@ class Public::ShopsController < ApplicationController
   end
 
   def index
+  	@shops = Shop.all
   end
 
   def show
