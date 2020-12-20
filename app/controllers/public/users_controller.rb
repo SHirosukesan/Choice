@@ -1,4 +1,5 @@
 class Public::UsersController < ApplicationController
+
   def home
 
   end
@@ -22,5 +23,4 @@ class Public::UsersController < ApplicationController
     sign_in user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
-
 end
