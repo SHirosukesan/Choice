@@ -15,9 +15,9 @@
                  <!--  <#a href="/events"><#img class="sidebar__room-logo" src="/assets/Nomi-Joy-a0460bb4c9735ab3f225a863e6bf2cb4ad1c6a09beeb0416aa11712a24b6a8f7.png"><#/a> -->
             <nav class="sidebar__nav">
                 <ul class="nav flex-column">
-                  <li><%= link_to 'HOME', users_home_path %></li>
-                  <li><%= link_to 'MYPAGE', user_path(current_user.id) %></li>
-                  <li><%= link_to 'SHOPS', shops_path %></li>
+                  <li><%= link_to 'HOME', public_users_home_path %></li>
+                  <li><%= link_to 'MYPAGE', public_user_path(current_user.id) %></li>
+                  <li><%= link_to 'SHOPS', public_shops_path %></li>
                   <li><%= link_to 'NOTICE', ""%></li>
                   <li><%= link_to 'DM', "" %></li>
                   <li><%= link_to 'SIGNOUT', destroy_user_session_path,method: :delete %></li>
