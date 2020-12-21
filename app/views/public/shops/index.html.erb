@@ -3,8 +3,12 @@
           <div>
             <% @shops.each do |shop| %>
               <div class="card">
+              	<%= attachment_image_tag shop, :image, format: 'jpeg', size: "300x200", fallback: "no_image.jpg" %>
               	<%= shop.name %>
               	<%= shop.food %>
               </div>
             <% end %>
+            <p><%= link_to 'EDIT', edit_public_shop_path(current_user.id) %></p>
           </div>
+
+<!-- image_idの_idが要らない -->

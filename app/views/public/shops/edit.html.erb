@@ -1,0 +1,6 @@
+<div>
+	<%= form_with(model: @shop, url:public_shops_path(id) , local: true) do |f| %>
+	<%= f.attachment_field :image, placeholder: "画像", class: "" %>
+    <%= f.submit "投稿", class: "" %>
+    <% end %>
+</div>
