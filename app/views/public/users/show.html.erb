@@ -4,4 +4,5 @@
 <h1>嫌いな食べ物</h1>
 <h1>好きな食べ物</h1>
 <h1>食の好み</h1>
+<div><%= attachment_image_tag shop, :image, format: 'jpeg', size: "300x200", fallback: "no_image.jpg" %></div>
 <li><%= link_to 'EDIT', edit_public_user_path(current_user.id) %></li>

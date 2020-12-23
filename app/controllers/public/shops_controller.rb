@@ -4,30 +4,22 @@ class Public::ShopsController < ApplicationController
     end
 
     def create
+      #新しく作成する場所だからnewを使用する。
     end
 
     def update
+      #paramsでshopのurlの番号を取ってくる。
+      #Shop.findで先ほどとってきた番号のレコードを引っ張ってくる。
+      #findでレコードを取るのは存在するレコードにアップデートするため。
       @shop = Shop.find(params[:id])
-      #shopのレコードを取ってくる
-      @shop_record = @shop.new(shop_params)
-      binding.pry
-      #shopのレコードにからの箱を用意しフォームwidthで送られてきたデータを受け取る。
-      #buinddingpryのレコードを頭でイメージする。
-      #
-      @shop_record.save
-      @redirect_to.edit_public_shop_path(:shop_id)
-      #saveする。
-
-
-    # post_image = PostImage.find(params[:post_image_id])
-    # comment = current_user.post_comments.new(post_comment_params)
-    # comment.post_image_id = post_image.id
-    # comment.save
-    # redirect_to post_image_path(post_image)
+      #(shop_params)で送ってきたデータを受け取ってupdateする。
+      @shop.update(shop_params)
+      #指定のパスに遷移する。
+      redirect_to public_shops_path
     end
 
     def show
-    	@shops = Shop.all
+    	@shop = Shop.find(params[:id])
     end
 
     def edit
@@ -35,10 +27,10 @@ class Public::ShopsController < ApplicationController
     end
 
     private
-    def shop_params
-    params.require(:shop).permit(:name, :food, :image)
     #.requireはshopコントローラーの.permitは:name とfoodとimageだけ受け取りますよ
     #という意味。
     #このimageはrefileのimageでimage_idだがここでは_idはいらない。
+    def shop_params
+    params.require(:shop).permit(:name, :food, :image)
     end
 end

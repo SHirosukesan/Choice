@@ -12,8 +12,19 @@ class Public::UsersController < ApplicationController
 
   end
 
-  def edit
+  def update
+     #paramsでshopのurlの番号を取ってくる。
+      #Shop.findで先ほどとってきた番号のレコードを引っ張ってくる。
+      #findでレコードを取るのは存在するレコードにアップデートするため。
+      @user = User.find(params[:id])
+      #(shop_params)で送ってきたデータを受け取ってupdateする。
+      @user.update(user_params)
+      #指定のパスに遷移する。
+      redirect_to public_users_path
+  end
 
+  def edit
+      @shop = Shop.find(params[:id])
   end
 
   def new_guest

@@ -5,3 +5,9 @@
 <h1>好きな食べ物</h1>
 <h1>食の好み</h1>
 <h1>showページの稿画面</h1>
+<div>
+	<%= form_with(model: @user, url:public_user_path(@user), local: true) do |f| %>
+	<%= f.attachment_field :image, placeholder: "画像", class: "" %>
+    <%= f.submit "投稿", class: "" %>
+    <% end %>
+</div>
