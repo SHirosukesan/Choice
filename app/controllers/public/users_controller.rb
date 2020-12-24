@@ -20,11 +20,11 @@ class Public::UsersController < ApplicationController
       #(shop_params)で送ってきたデータを受け取ってupdateする。
       @user.update(user_params)
       #指定のパスに遷移する。
-      redirect_to public_users_path
+      redirect_to public_user_path(@user.id)
   end
 
   def edit
-      @shop = Shop.find(params[:id])
+      @user = User.find(params[:id])
   end
 
   def new_guest
@@ -33,5 +33,9 @@ class Public::UsersController < ApplicationController
     end
     sign_in user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+  private
+  def user_params
+    params.require(:user).permit(:name, :image)
   end
 end
