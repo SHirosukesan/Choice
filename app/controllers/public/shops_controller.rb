@@ -13,6 +13,7 @@ class Public::ShopsController < ApplicationController
       #findでレコードを取るのは存在するレコードにアップデートするため。
       @shop = Shop.find(params[:id])
       #(shop_params)で送ってきたデータを受け取ってupdateする。
+      @shop.user_id = current_user.id
       @shop.update(shop_params)
       #指定のパスに遷移する。
       redirect_to public_shops_path
