@@ -27,6 +27,10 @@ class Public::ShopsController < ApplicationController
     	@shop = Shop.find(params[:id])
     end
 
+    def search
+      @shops = Shop.search(params[:search])
+    end
+
     private
     #.requireはshopコントローラーの.permitは:name とfoodとimageだけ受け取りますよ
     #という意味。

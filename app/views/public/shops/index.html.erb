@@ -1,4 +1,10 @@
-          <h2 class="main-title">shop一覧</h2>
+<h2 class="main-title">shop一覧</h2>
+      <p>検索</p>
+      <%= form_tag(public_search_path,:method => 'get') do %>
+            <%= text_field_tag :search %>
+            <%= submit_tag 'ニックネーム検索', :name => nil %>
+      <% end %>
+      <br>
 
           <div>
             <% @shops.each do |shop| %>

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   namespace :public do
     #shops
     resources :shops
+    #search機能
+    get "search" => "shops#search",as:"search"
     #users
     get 'users/home', to: 'users#home'
     #resourcesとroot、getを逆にしないとdeviceのコントローラーに取られるのかhomeやtop画面が表示されなかった表示されなかった。
