@@ -1,6 +1,13 @@
 <div>
 	<%= attachment_image_tag @user, :image, format: 'jpeg', size: "300x200", fallback: "no_image.jpg" %>
 </div>
+<h1>ユーザー詳細ページ</h1>
+<h3><%= @user.email %></h3>
+<h2>投稿内容</h2>
+<% @user.shops.each do |shop| %>
+  <a href="/shops/<%= shop.id %>"><%= shop.content %></a>
+  <hr>
+<% end %>
 <h1>宗教</h1>
 <h1>アレルギー</h1>
 <h1>嫌いな食べ物</h1>

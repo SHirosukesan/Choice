@@ -1,7 +1,8 @@
 class Public::UsersController < ApplicationController
+  #before_action :authenticate_user!
 
   def home
-
+    @users = User.all
   end
 
   def top
@@ -9,7 +10,7 @@ class Public::UsersController < ApplicationController
   end
 
   def show
-
+    @user = User.find(params[:id])
   end
 
   def update

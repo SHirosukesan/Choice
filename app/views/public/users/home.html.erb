@@ -1,6 +1,6 @@
-<h1>スケジュール</h1>
-<h1>検索、あいまい検索機能</h1>
-<h1>オススメ品</h1>
-<h1></h1>
-<h1></h1>
-<h1>Choice</h1>
+<h1>ユーザー一覧</h1>
+<% @users.each do |user| %>
+  <a href="/users/<%= user.id %>"><%= user.email %></a>
+  <hr>
+<% end %>
+<%= link_to "ホームへ戻る", posts_path %>
