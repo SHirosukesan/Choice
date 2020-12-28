@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   namespace :public do
     #shops
-    resources :shops
+    resources :shops do
+      #ネストする。
+      resources :comments, only: [:create]
+    end
     #search機能
     get "search" => "shops#search",as:"search"
     #users

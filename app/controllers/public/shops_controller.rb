@@ -1,21 +1,24 @@
 class Public::ShopsController < ApplicationController
     def index
+      #一覧表示、投稿コメント機能
     	@shops = Shop.all
       @shop = Shop.new
     end
 
     def create
+      #投稿コメント機能
       #新しく作成する場所だからnewを使用する。
       @shop = Shop.new(shop_params)
       @shop.user_id = current_user.id
       if @shop.save
-        redirect_back(fallback_location: root_path)
+        redirect_back(fallback_location: public_users_home_path)
       else
-        redirect_back(fallback_location: root_path)
+        redirect_back(fallback_location: public_users_home_path)
       end
     end
 
     def update
+      #画像のupdate
       #paramsでshopのurlの番号を取ってくる。
       #Shop.findで先ほどとってきた番号のレコードを引っ張ってくる。
       #findでレコードを取るのは存在するレコードにアップデートするため。
@@ -28,14 +31,19 @@ class Public::ShopsController < ApplicationController
     end
 
     def show
+      #show画面の表示
     	@shop = Shop.find(params[:id])
+      @comments = @shop.comments
+      @comment = Comment.new
     end
 
     def edit
+       #edit画面の表示
     	@shop = Shop.find(params[:id])
     end
 
     def search
+      #検索機能作成
       @shops = Shop.search(params[:search])
     end
 

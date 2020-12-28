@@ -1,0 +1,24 @@
+
+<h1>投稿詳細ページ</h1>
+<h3><%= @shop.user.email %></h3>
+<h3><%= @shop.content %></h3>
+<%= link_to "ホームへ戻る", public_users_home_path %>
+
+<hr>
+<h3><%= @shop.content %></h3>
+
+
+<h2>コメント一覧</h2>
+<% @comments.each do |comment| %>
+  <div>
+    <a href="/users/<%= @show.user.id %>"><%= comment.user.email %></a>
+    <%= comment.content %>
+    <hr>
+  </div>
+<% end %>
+
+<%= form_for [@shop, @comment] do |f| %>
+  <%= f.text_field :content %>
+  <br>
+  <%= f.submit 'コメントする' %>
+<% end %>

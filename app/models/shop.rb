@@ -8,4 +8,6 @@ class Shop < ApplicationRecord
       return Shop.all unless search
       Shop.where(['name LIKE ?', "%#{search}%"])
     end
+    #コメント機能中かテーブルのアソシエーション
+    has_many :comments
 end

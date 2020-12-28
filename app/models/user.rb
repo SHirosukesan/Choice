@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   attachment :image
   has_many :shops, dependent: :destroy
+  #コメント機能中かテーブルのアソシエーション
+  has_many :comments
 end
