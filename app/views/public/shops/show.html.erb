@@ -17,8 +17,7 @@
   </div>
 <% end %>
 
-<%= form_for [@shop, @comment] do |f| %>
-  <%= f.text_field :content %>
-  <br>
+<%= form_for [@shop, @comment],url:public_shop_comments_path(@shop) do |f| %>
+  <%= f.text_area :content , size: "40x5"%>
   <%= f.submit 'コメントする' %>
 <% end %>

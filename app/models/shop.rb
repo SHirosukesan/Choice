@@ -9,5 +9,5 @@ class Shop < ApplicationRecord
       Shop.where(['name LIKE ?', "%#{search}%"])
     end
     #コメント機能中かテーブルのアソシエーション
-    has_many :comments
+  has_many :comments
 end
