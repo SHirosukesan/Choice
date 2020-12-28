@@ -7,7 +7,6 @@ class Public::ShopsController < ApplicationController
     def create
       #新しく作成する場所だからnewを使用する。
       @shop = Shop.new(shop_params)
-      binding.pry
       @shop.user_id = current_user.id
       if @shop.save
         redirect_back(fallback_location: root_path)
