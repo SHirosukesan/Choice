@@ -14,7 +14,6 @@ class Public::UsersController < ApplicationController
   end
 
   def update
-    #paramsでshopのurlの番号を取ってくる。
      #paramsでshopのurlの番号を取ってくる。
       #Shop.findで先ほどとってきた番号のレコードを引っ張ってくる。
       #findでレコードを取るのは存在するレコードにアップデートするため。

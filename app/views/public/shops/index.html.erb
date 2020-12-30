@@ -1,33 +1,38 @@
-<h2 class="main-title">shop一覧</h2>
-      <!-- 検索機能 -->
-      <%= form_tag(public_search_path,:method => 'get') do %>
-            <%= text_field_tag :search %>
-            <%= submit_tag 'ニックネーム検索', :name => nil %>
-      <% end %>
-      <br>
+<div class="container">
+    <div class="row">
+       <div class="col-md-10 col-md-offset-1">
+        <h2 class="main-title">shop一覧</h2>
+              <!-- 検索機能 -->
+              <%= form_tag(public_search_path,:method => 'get') do %>
+                    <%= text_field_tag :search %>
+                    <%= submit_tag 'お店一覧検索', :name => nil %>
+              <% end %>
+              <br>
 
-      <h1>コメントサンプル</h1>
-      <% if user_signed_in? %>
-          <h2>投稿する</h2>
-          <!-- コメントの投稿 、urlがわかりにくかったようだったので指定し直す -->
-          <%= form_for @shop,:url => {:action => :index} do |f| %>
-            <%= f.text_field :content %>
-            <%= f.submit %>
-          <% end %>
-      <%end%>
-          <hr>
-      <div>
-      <h2>投稿一覧</h2>
-      <!-- コメントの投稿 -->
-        <% @shops.each do |shop| %>
-          <div class="card">
-          	<%= attachment_image_tag shop, :image, format: 'jpeg', size: "300x200", fallback: "no_image.jpg" %>
-          	<%= shop.name %>
-          	<%= shop.food %>
-            <%= shop.content %>
-          </div>
-        <% end %>
-        <p><%= link_to 'EDIT', edit_public_shop_path(current_user.id) %></p>
-      </div>
+              <h1>お気に入りのお店投稿ボタン</h1>
+              <!-- 投稿ページにてお店画像などを送れるようにする必要がある -->
+                  <h2>投稿する</h2>
+                  <!-- コメントの投稿 、urlがわかりにくかったようだったので指定し直す -->
+                  <%= form_for @shop,:url => {:action => :index} do |f| %>
+                    <%= f.text_field :content %>
+                    <%= f.submit %>
+                  <% end %>
+                  <hr>
+              <div>
+              <h2>投稿一覧</h2>
+              <!-- コメントの投稿 -->
+                <% @shops.each do |shop| %>
+                  <div class="card">
+                  	<%= attachment_image_tag shop, :image, format: 'jpeg', size: "300x200", fallback: "no_image.jpg" %>
+                  	名前<%= shop.name %>
+                  	食べ物種類<%= shop.food %>
+                    説明文<%= shop.content %>
+                  </div>
+                <% end %>
+                <p><%= link_to 'EDIT', edit_public_shop_path(current_user.id) %></p>
+              </div>
 
-<!-- image_idの_idが要らない -->
+        <!-- image_idの_idが要らない -->
+       </div>
+    </div>
+</div>
