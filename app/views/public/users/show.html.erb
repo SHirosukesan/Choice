@@ -1,28 +1,31 @@
+<div class="container">
+    <div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<%= attachment_image_tag @user, :image, format: 'jpeg', size: "300x200", fallback: "no_image.jpg" %>
+			<h1>ユーザー詳細ページ</h1>
+			<h3>名前<%= @user.name %></h3>
+			<button type="button" class="btn btn-success js-evernote-checked" data-evernote-id="3896">
+				<li><%= link_to 'USER_EDIT', edit_public_user_path(current_user.id) %></li>
+			</button>
+			<br>
+			<br>
+			<hr>
+			<h2>投稿内容</h2>
+			<% @user.shops.each do |shop| %>
+			このリンクはshopのshowに変える
+				<%= link_to  edit_public_user_path(@user) do %>
+				  <%= attachment_image_tag shop, :image, format: 'jpeg', size: "300x200", fallback: "no_image.jpg" %>
+			  	  投稿コメント<%= shop.content %>
+			  	<%end%>
+			  <hr>
+			<% end %>
 
-<div>
-	<%= attachment_image_tag @user, :image, format: 'jpeg', size: "300x200", fallback: "no_image.jpg" %>
+
+			<h1>宗教</h1>
+			<h1>アレルギー</h1>
+			<h1>嫌いな食べ物</h1>
+			<h1>好きな食べ物</h1>
+			<h1>食の好み</h1></div>
+		</div>
+    </div>
 </div>
-<h1>ユーザー詳細ページ</h1>
-<h3>名前<%= @user.name %></h3>
-<button type="button" class="btn btn-success js-evernote-checked" data-evernote-id="3896">
-	<li><%= link_to 'USER_EDIT', edit_public_user_path(current_user.id) %></li>
-</button>
-<hr>
-<br>
-<br>
-<h2>投稿内容</h2>
-<% @user.shops.each do |shop| %>
-このリンクはshopのshowに変える
-	<%= link_to  edit_public_user_path(@user) do %>
-	  <%= attachment_image_tag shop, :image, format: 'jpeg', size: "300x200", fallback: "no_image.jpg" %>
-  	  <%= shop.content %>
-  	<%end%>
-  <hr>
-<% end %>
-
-
-<h1>宗教</h1>
-<h1>アレルギー</h1>
-<h1>嫌いな食べ物</h1>
-<h1>好きな食べ物</h1>
-<h1>食の好み</h1>

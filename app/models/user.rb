@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   attachment :image
+
   has_many :shops, dependent: :destroy
   #コメント機能中かテーブルのアソシエーション
   has_many :comments

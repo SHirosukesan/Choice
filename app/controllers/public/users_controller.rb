@@ -33,7 +33,7 @@ class Public::UsersController < ApplicationController
       user.password = 123456
     end
     sign_in user
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to public_shops_path, notice: 'ゲストユーザーとしてログインしました。'
   end
   private
   def user_params

@@ -9,6 +9,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # end
 #------------------------------------------------------------------------
 
+# ---------------アプリケーションコントローラーで遷移先決めるかこっち決めるのか？--------------------------
+# def after_sign_up_path_for(resource)
+#     public_shops_path
+# end
+
+
+
 
 # protected
 
