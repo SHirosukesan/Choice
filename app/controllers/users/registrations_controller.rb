@@ -10,9 +10,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 #------------------------------------------------------------------------
 
 # ---------------アプリケーションコントローラーで遷移先決めるかこっち決めるのか？--------------------------
-# def after_sign_up_path_for(resource)
-#     public_shops_path
-# end
+def after_sign_up_path_for(resource)
+    edit_public_user_path(current_user)
+end
 
 
 
@@ -22,13 +22,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # ここのコメントアウトを外してリダイレクト先を指定
 # ルートパス名でも良い
 # The path used after sign up.
-
-#一度消してみた12/14--------------------------------------------------------
-# def after_sign_in_path_for(resource)
-#     users_home_path
-# end
-#------------------------------------------------------------------------
-
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
