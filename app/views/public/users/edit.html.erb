@@ -4,10 +4,33 @@
 <h1>嫌いな食べ物</h1>
 <h1>好きな食べ物</h1>
 <h1>食の好み</h1>
-<h1>showページの稿画面</h1>
-<div>
-	<%= form_with(model: @user, url:public_user_path(@user), local: true) do |f| %>
+<!-- 後でユーザーネームに変える -->
+<h1>
+	<%= @user.each do |user| %>
+    <%=user.shops.id%>
+	<% end %>
+</h1>
+<h1><%=@user.email%> showページの稿画面</h1>
+<%= form_with(model: @user, url:public_user_path(@user), local: true) do |f| %>
+	<label for="inputEmail3" class="col-sm-2 col-form-label">ユーザー写真</label>
+	<div class="col-sm-10">
 	<%= f.attachment_field :image, placeholder: "画像", class: "" %>
-    <%= f.submit "投稿", class: "" %>
-    <% end %>
-</div>
+    </div>
+    <label for="inputEmail3" class="col-sm-2 col-form-label">店名</label>
+    <div class="col-sm-10">
+      <%= f.text_field :name %>
+    </div>
+    <label for="inputEmail3" class="col-sm-2 col-form-label">食べ物の種類</label>
+    <div class="col-sm-10">
+    <%= f.text_field :food %>
+    </div>
+    <label for="inputEmail3" class="col-sm-2 col-form-label">説明文(200文字まで)</label>
+    <div class="col-sm-10">
+    <%= f.text_area :content %>
+    </div>
+    <div class="form-group row">
+	      <div class="col-sm-10 offset-sm-2">
+	          <button type="submit" class="btn btn-primary">更新</button>
+	      </div>
+	  </div>
+<% end %>
