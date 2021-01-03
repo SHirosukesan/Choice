@@ -6,7 +6,6 @@
 			<%= attachment_image_tag @shop, :image, format: 'jpeg', size: "300x200", fallback: "no_image.jpg" %>
             <p>店名<%=@shop.name%></p>
             <!-- アドレスは消す？ -->
-			<h3>メール<%= @shop.user.email %></h3>
 			<h3>店の説明文<%= @shop.content %></h3>
 			<p>住所</p>
 			<hr>

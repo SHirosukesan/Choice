@@ -2,6 +2,10 @@ class Public::ShopsController < ApplicationController
     def index
       #一覧表示、投稿コメント機能
     	@shops = Shop.all
+      # @shop = Shop.find(params[:id])
+    end
+
+    def new
       @shop = Shop.new
     end
 
@@ -11,9 +15,9 @@ class Public::ShopsController < ApplicationController
       @shop = Shop.new(shop_params)
       @shop.user_id = current_user.id
       if @shop.save
-        redirect_back(fallback_location: public_users_home_path)
+        redirect_to public_shops_path
       else
-        redirect_back(fallback_location: public_users_home_path)
+        redirect_to new_public_shop_path
       end
     end
 
