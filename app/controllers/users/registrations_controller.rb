@@ -10,9 +10,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 #------------------------------------------------------------------------
 
 # ---------------アプリケーションコントローラーで遷移先決めるかこっち決めるのか？--------------------------
-def after_sign_up_path_for(resource)
-    edit_public_user_path(current_user)
-end
+# def after_sign_up_path_for(resource)
+#     edit_public_user_path
+# end
 
 
 
