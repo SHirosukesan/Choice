@@ -4,6 +4,9 @@
 			<button type="button" class="btn btn-success js-evernote-checked" data-evernote-id="3896">
 			   <%= link_to 'USER_EDIT', edit_public_shop_path(current_user.id) %>
 			</button>
+			<button type="button" class="btn btn-success js-evernote-checked" data-evernote-id="3896">
+			   <%= link_to "削除", public_shop_path(@shop.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+		   </button>
 			<h1>店の名前<%=@shop.name%></h1>
 			<hr>
 			<%= attachment_image_tag @shop, :image, format: 'jpeg', size: "300x200", fallback: "no_image.jpg" %>

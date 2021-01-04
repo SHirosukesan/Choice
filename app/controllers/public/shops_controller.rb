@@ -22,7 +22,9 @@ class Public::ShopsController < ApplicationController
     end
 
     def destroy
-      
+      shop = Shop.find(params[:id])  # データ(レコード)を1件取得
+      shop.destroy  # データ（レコード）を削除
+      redirect_to public_shops_path  # List一覧画面へリダイレクト
     end
 
     def update
