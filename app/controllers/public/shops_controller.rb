@@ -21,6 +21,10 @@ class Public::ShopsController < ApplicationController
       end
     end
 
+    def destroy
+      
+    end
+
     def update
       #画像のupdate
       #paramsでshopのurlの番号を取ってくる。

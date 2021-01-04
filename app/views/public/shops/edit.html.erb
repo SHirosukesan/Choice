@@ -1,6 +1,39 @@
-<div>
-	<%= form_with(model: @shop, url:public_shop_path(@shop), local: true) do |f| %>
+<h1><%=@shop.name%> showページの稿画面</h1>
+<%= form_with(model: @shop, url:public_shop_path(@shop), local: true) do |f| %>
+	<label for="inputEmail3" class="col-sm-2 col-form-label">
+	ユーザー写真
+	<%= attachment_image_tag @shop, :image, format: 'jpeg', size: "300x200", fallback: "no_image.jpg" %>
+    </label>
+	<div class="col-sm-10">
 	<%= f.attachment_field :image, placeholder: "画像", class: "" %>
-    <%= f.submit "投稿", class: "" %>
-    <% end %>
-</div>
+    </div>
+    <label for="inputEmail3" class="col-sm-2 col-form-label">
+    名前
+    <%= @shop.name %>
+    </label>
+    <div class="col-sm-10">
+      <%= f.text_field :name %>
+    </div>
+    <label for="inputEmail3" class="col-sm-2 col-form-label">
+    メール
+    <%= @shop.food %>
+    </label>
+    <div class="col-sm-10">
+    <%= f.text_field :food%>
+    </div>
+     <label for="inputEmail3" class="col-sm-2 col-form-label">
+    住所
+    </label>
+    <div class="col-sm-10">
+    <%= f.text_field :food%>
+    </div>
+    <label for="inputEmail3" class="col-sm-2 col-form-label">説明文(200文字まで)</label>
+    <div class="col-sm-10">
+    <%= f.text_area :content %>
+    </div>
+    <div class="form-group row">
+	      <div class="col-sm-10 offset-sm-2">
+	          <button type="submit" class="btn btn-primary">更新</button>
+	      </div>
+	</div>
+<% end %>
