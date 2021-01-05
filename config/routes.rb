@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'favorites/create'
-    get 'favorites/destroy'
-  end
   #device
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -12,6 +8,7 @@ Rails.application.routes.draw do
     resources :shops do
       #ネストする。
       resources :comments, only: [:create]
+      resource :favorites, only: [:create, :destroy]
     end
     #search機能
     get "search" => "shops#search",as:"search"

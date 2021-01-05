@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :shops, dependent: :destroy
   #コメント機能中かテーブルのアソシエーション
   has_many :comments
+  #いいね機能
+  has_many :favorites
 end
