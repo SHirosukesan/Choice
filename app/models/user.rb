@@ -10,4 +10,7 @@ class User < ApplicationRecord
   has_many :comments
   #いいね機能
   has_many :favorites
+  #直接アソシエーションを引けるようにして簡易化する。
+  #source shoにしているのは被らないようにしているため、favorite_shopsも上と被らないようにするため
+  has_many :favorite_shops, through: :favorites, source: :shop
 end
