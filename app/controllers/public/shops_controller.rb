@@ -44,9 +44,6 @@ class Public::ShopsController < ApplicationController
     	@shop = Shop.find(params[:id])
       @comments = @shop.comments
       @comment = Comment.new
-      #いいね機能
-      @tweets = @user.shops
-      @favorite_shops = @user.favorite_shops
     end
 
     def edit

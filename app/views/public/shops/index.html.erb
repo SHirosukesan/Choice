@@ -10,7 +10,6 @@
               <br>
 
               <h1><%= link_to '新規お店作成ボタン', new_public_shop_path %></h1>
-                  <hr>
               <div>
                     <% @shops.each do |shop| %>
                       <div class="card">
@@ -22,7 +21,6 @@
                           <% end %>
                                   <!-- いいね機能 -->
                         <% @shops.each do |shop| %>
-                          <hr>
                           <% if user_signed_in? %>
                             <% if shop.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
                                 <p><span>お気に入り解除&#9829;: </span><%=link_to shop.favorites.count, public_shop_favorites_path(shop.id), method: :delete %><%=shop.name%></p>
@@ -34,7 +32,7 @@
                           <% end %>
                         <% end %>
                     <!-- いいね機能 -->
-                      </div>
+                    </div>
                     <% end %>
             </div>
        </div>

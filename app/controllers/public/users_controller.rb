@@ -11,6 +11,9 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+        #いいね機能
+    @shops = @user.shops
+    @favorite_shops = @user.favorite_shops
   end
 
   def update
