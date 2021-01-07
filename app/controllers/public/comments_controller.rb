@@ -1,14 +1,21 @@
 class Public::CommentsController < ApplicationController
 	def create
-    @comment = Comment.new(comment_params)
+    shop = Shop.find(params[:shop_id])
+    @comment = shop.comments.build(comment_params)
     @comment.user_id = current_user.id
-    if @comment.save
-      redirect_back(fallback_location: public_users_home_path)
+    if @comment.save!
+      redirect_to public_shop_path(current_user)
     else
-      redirect_back(fallback_location: public_users_home_path)
+      redirect_to public_shop_path(current_user)
     end
-
   end
+
+  def destroy
+    Comment.find_by(id: params[:id],shop_id: params[:shop_id]).destroy
+    redirect_to public_shop_path(current_user)
+  end
+
+
 
   private
   def comment_params

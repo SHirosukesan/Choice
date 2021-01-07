@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     #shops
     resources :shops do
       #ネストする。
-      resources :comments, only: [:create]
+      resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
     #search機能

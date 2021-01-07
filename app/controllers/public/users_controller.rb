@@ -14,6 +14,7 @@ class Public::UsersController < ApplicationController
         #いいね機能
     @shops = @user.shops
     @favorite_shops = @user.favorite_shops
+    #コメント機能
   end
 
   def update
