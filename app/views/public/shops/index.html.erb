@@ -19,7 +19,7 @@
                           	食べ物種類<%= shop.food %>
                             説明文<%= shop.content %>
                           <% end %>
-                                  <!-- いいね機能 -->
+                      <!-- いいね機能 -->
                         <% @shops.each do |shop| %>
                           <% if user_signed_in? %>
                             <% if shop.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->

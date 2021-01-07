@@ -7,16 +7,36 @@
 			<button type="button" class="btn btn-success js-evernote-checked" data-evernote-id="3896">
 			   <%= link_to "削除", public_shop_path(@shop.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
 		   </button>
+
+ <!-- いいね機能 -->
+            <% @shops.each do |shop| %>
+              <% if user_signed_in? %>
+                <% if shop.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
+                    <p><span>お気に入り解除&#9829;: </span><%=link_to shop.favorites.count, public_shop_favorites_path(shop.id), method: :delete %><%=shop.name%></p>
+                <% else %>
+                    <p><span>お気に入り登録&#9825;: </span><%=link_to shop.favorites.count, public_shop_favorites_path(shop.id), method: :post %><%=shop.name%></p>
+                <% end %>
+              <% else %>
+                <p><span>お気に入り数: </span><%= shop.favorites.count %></p>
+              <% end %>
+            <% end %>
+<!-- いいね機能 -->
+
+<!-- コメント機能 -->
 			<h1>店の名前<%=@shop.name%></h1>
 			<hr>
 			<%= attachment_image_tag @shop, :image, format: 'jpeg', size: "300x200", fallback: "no_image.jpg" %>
             <p>店名<%=@shop.name%></p>
             <!-- アドレスは消す？ -->
-			<h3>店の説明文<%= @shop.content %></h3>
+            <hr>
+            <h3>投稿者:<%= @shop.user.email %></h3>
+            <br>
+			<h3>投稿者コメント:<%= @shop.content %></h3>
 			<p>住所</p>
 			<hr>
-			<h3><%= @shop.content %></h3>
+			ここはコメント機能というより説明文にしていたい。
 
+<!-- コメント機能 -->
 <!-- ---------------------api作成する------------------------------------------------ -->
             <p>リンクにしてクチコミにする</p>
 			<h2>コメント一覧</h2>

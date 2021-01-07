@@ -5,6 +5,7 @@ class Public::ShopsController < ApplicationController
     end
 
     def new
+      #コメント機能ショップ作成
       @shop = Shop.new
     end
 
@@ -44,6 +45,8 @@ class Public::ShopsController < ApplicationController
     	@shop = Shop.find(params[:id])
       @comments = @shop.comments
       @comment = Comment.new
+      #いいね機能
+      @shops = Shop.all
     end
 
     def edit
