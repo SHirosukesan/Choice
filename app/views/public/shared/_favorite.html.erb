@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+	<% if shop.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
+	    <p><span>お気に入り解除&#9829;: </span><%=link_to shop.favorites.count, public_shop_favorites_path(shop.id), method: :delete, remote: true %><%=shop.name%></p>
+	<% else %>
+	    <p><span>お気に入り登録&#9825;: </span><%=link_to shop.favorites.count, public_shop_favorites_path(shop.id), method: :post, remote: true %><%=shop.name%></p>
+	<% end %>
+	<% else %>
+	<p><span>お気に入り数: </span><%= shop.favorites.count %></p>
+<% end %>
