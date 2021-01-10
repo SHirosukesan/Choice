@@ -9,7 +9,6 @@ Rails.application.routes.draw do
       #ネストする。
       resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
-      get 'favorites', to: 'favorites#favorite'
     end
     #search機能
     get "search" => "shops#search",as:"search"

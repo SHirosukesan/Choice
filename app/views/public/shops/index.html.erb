@@ -19,13 +19,6 @@
                           	食べ物種類<%= shop.food %>
                             説明文<%= shop.content %>
                     <% end %>
-                      <!-- いいね機能 -->
-                        <% @shops.each do |shop| %>
-                          <div id="favorites_buttons_<%= shop.id %>">
-                           <%= render partial: 'public/shared/favorite', locals: { shop: shop} %>
-                          </div>
-                        <% end %>
-                    <!-- いいね機能 -->
                     </div>
                     <% end %>
             </div>

@@ -1,1 +1,1 @@
-$('#favorites_buttons_<%= @favorite.shop.id %>').html("<%= j(render partial: 'public/favorites/favorite', locals: {shop: @favorite.shop}) %>");
+$('#likes_buttons_<%= @favorite.shop_id %>').html("<%= j(render partial: 'public/shared/favorite', locals: {shop: @favorite.shop}) %>");

@@ -1,4 +1,1 @@
-$('#favorites_buttons_<%= @favorite.shop_id %>').html("<%= j(render partial: 'public/favorites/favorite', locals: {shop: @favorite.shop}) %>");
-
-<%# ("<%= j(render partial: '部分テンプレートがあるディレクトリー名/部分テンプレート名' %>
-$(".like-" + <%= @favorite.campsite_id %>).html("<%= j(render partial: 'public/campsites/favorite', locals: {campsite: @favorite.campsite}) %>");
+$('#likes_buttons_<%= @favorite.shop_id %>').html("<%= j(render partial: 'public/shared/favorite', locals: {shop: @favorite.shop}) %>");
