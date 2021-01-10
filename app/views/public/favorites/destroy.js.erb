@@ -1,2 +1,4 @@
-// #likes_buttons_<%= @blog.id %>この部分のHTMLだけ、renderで部分的に更新するという処理です
-$('#favorites_buttons_<%= @shop.id %>').html("<%= j(render partial: 'public/favorites/favorite', locals: {shop: @shop}) %>");
+$('#favorites_buttons_<%= @favorite.shop_id %>').html("<%= j(render partial: 'public/favorites/favorite', locals: {shop: @favorite.shop}) %>");
+
+<%# ("<%= j(render partial: '部分テンプレートがあるディレクトリー名/部分テンプレート名' %>
+$(".like-" + <%= @favorite.campsite_id %>).html("<%= j(render partial: 'public/campsites/favorite', locals: {campsite: @favorite.campsite}) %>");
