@@ -28,7 +28,9 @@
 			<hr>
 			<!-- こsこはコメント機能というより説明文にしていたい。
 	-->
-	<!-- ---------------------api作成する------------------------------------------------ -->        <!-- コメント投稿 -->
+	<!-- ---------------------api作成する------------------------------------------------ -->
+                      <li><%= link_to 'API', public_articles_show_path(current_user) %></li>
+        <!-- コメント投稿 -->
 	        <h3>お店に対するコメント機能作成会話、評価する。</h3>
 	        <%= form_with(model: [@shop, @comment], url: public_shop_comments_path(@shop), remote: true) do |f| %>
 			  <%= f.text_area :content, size: "40x5"%>
