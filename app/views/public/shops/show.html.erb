@@ -26,10 +26,11 @@
 			<h3>店説明文:<%= @shop.content %></h3>
 			<p>住所</p>
 			<hr>
-			<!-- こsこはコメント機能というより説明文にしていたい。
-	-->
-	<!-- ---------------------api作成する------------------------------------------------ -->
-                      <li><%= link_to 'API', public_articles_show_path(current_user) %></li>
+			<!-- ここはコメント機能というより説明文にしていたい。-->
+				<!--api--->
+		    <% @shop.articles.each do |article|%>
+	        <%= link_to 'API', public_shop_article_path(article) %>
+	       <% end %>
         <!-- コメント投稿 -->
 	        <h3>お店に対するコメント機能作成会話、評価する。</h3>
 	        <%= form_with(model: [@shop, @comment], url: public_shop_comments_path(@shop), remote: true) do |f| %>
@@ -37,7 +38,6 @@
 			  <%= f.submit 'コメントする' %>
 			<% end %>
 			<hr>
-			<h2>コメント一覧</h2>
 			<% @comments.each do |c| %>
 				<div>
 					<hr>

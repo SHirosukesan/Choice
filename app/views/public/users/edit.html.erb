@@ -45,3 +45,8 @@
 	      </div>
 	</div>
 <% end %>
+
+    <!-- ---------------------api作成する------------------------------------------------ -->
+      <% @user.articles.each do |article| %>
+          <%= render partial: 'public/shared/form', locals: { article:article} %>
+      <% end %>

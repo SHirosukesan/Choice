@@ -12,6 +12,9 @@ class Shop < ApplicationRecord
   has_many :comments
   #いいね機能
   has_many :favorites
+  #API機能
+  has_many :articles
+
   #shopがファボしているかどうかを判定する。
   #ビューで表示するとなると↓
   #if @tweet.favorited_by?(current_user)

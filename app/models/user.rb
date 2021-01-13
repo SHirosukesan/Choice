@@ -13,4 +13,5 @@ class User < ApplicationRecord
   #直接アソシエーションを引けるようにして簡易化する。
   #source shoにしているのは被らないようにしているため、favorite_shopsも上と被らないようにするため
   has_many :favorite_shops, through: :favorites, source: :shop
+  has_many :articles
 end

@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'articles/show'
-  end
   #device
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -12,14 +9,16 @@ Rails.application.routes.draw do
       #ネストする。
       resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
-      resource :articles, only: [:show]
+      resources :articles, only: [:show]
     end
     #search機能
     get "search" => "shops#search",as:"search"
     #users
     get 'users/home', to: 'users#home'
     #resourcesとroot、getを逆にしないとdeviceのコントローラーに取られるのかhomeやtop画面が表示されなかった表示されなかった。
-    resources :users
+    resources :users do
+      resources :articles, only: [:create, :destroy,:update]
+    end
     #簡単ログイン
     post '/users/guest_sign_in', to: 'users#new_guest'
   end
