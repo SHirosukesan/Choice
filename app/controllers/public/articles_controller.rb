@@ -4,7 +4,8 @@ class Public::ArticlesController < ApplicationController
   end
 
   def create
-  	shop = Shop.find(params[:shop_id])
+  	@article = Article.new(article_params)
+  	binding.pry
   	@article = shop.articles.build(article_params)
     @article.user_id = current_user.id
     if @article.save!

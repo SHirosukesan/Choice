@@ -7,6 +7,7 @@ class Public::ShopsController < ApplicationController
     def new
       #コメント機能ショップ作成
       @shop = Shop.new
+      @article = Article.new
     end
 
     def create

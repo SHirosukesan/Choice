@@ -25,3 +25,30 @@
 	      </div>
 	  </div>
 <% end %>
+<!-- api--------------- -->
+<h2>api投稿ページ</h2>
+<%= form_with(model: @article, url:public_user_articles_path(current_user), local:true) do |f| %>
+      <div class="field">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+
+      <div class="field">
+        <%= f.label :address %>
+        <%= f.text_field :address %>
+      </div>
+
+      <div class="field">
+        <%= f.label :latitude %>
+        <%= f.text_field :latitude %>
+      </div>
+
+      <div class="field">
+        <%= f.label :address %>
+        <%= f.text_field :address %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+<% end %>

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     get 'users/home', to: 'users#home'
     #resourcesとroot、getを逆にしないとdeviceのコントローラーに取られるのかhomeやtop画面が表示されなかった表示されなかった。
     resources :users do
-      resources :articles, only: [:create, :destroy,:update]
+      resources :articles, only: [:destroy,:update,:create]
     end
     #簡単ログイン
     post '/users/guest_sign_in', to: 'users#new_guest'
